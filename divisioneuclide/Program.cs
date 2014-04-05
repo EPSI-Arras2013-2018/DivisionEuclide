@@ -6,8 +6,24 @@ namespace divisioneuclide
     {
         static void Main(string[] args)
         {
-			DivisionEuclide();
+			menu ();
         }
+		static void menu()
+		{
+			bool erreur;
+			string reponse;
+			do {
+				erreur = false;
+				Console.WriteLine ("########### MENU ###########\n1) Division d'Euclide\n2) Inverse Division d'Euclide\n");
+				Console.Write ("Votre Choi?");
+				reponse = Console.ReadLine ();
+			} while(reponse!="1" && reponse!="2");
+			if (reponse == "1") {
+				DivisionEuclide ();
+			} else if (reponse=="2") {
+				InverseDivisionEuclide ();
+			}
+		}
 		static void DivisionEuclide()
 		{
 			int a;
@@ -84,11 +100,21 @@ namespace divisioneuclide
 		{
 			Console.WriteLine ("Opération impossible");
 		}
-		static void operationinverse()
+		static void InverseDivisionEuclide()
 		{
-			int a = 0;
-			int b = 0;
-			int c = 0;
+			int q;
+			int a;
+			int b;
+			int c;
+			ValeurInverseDivisionEuclide (out a, out b, out c);
+			q = a * b + c;
+			AfficherDivison (q, b, c, a);
+		}
+		static void ValeurInverseDivisionEuclide(out int a, out int b, out int c)
+		{
+			a=0;
+			b=0;
+			c=0;
 			Console.WriteLine("q=a*b[c]");
 			try
 			{
@@ -102,10 +128,7 @@ namespace divisioneuclide
 			catch(Exception)
 			{
 				Console.WriteLine ("erreur");
-				operationinverse ();
 			}
-			int q = a * b + c;
-			Console.WriteLine (q + "=" + a + "*" + b + "+" + c);
 		}
 	}
 }
