@@ -124,6 +124,9 @@ namespace divisioneuclide
 				b = int.Parse(Console.ReadLine());
 				Console.Write("c : ");
 				c = int.Parse(Console.ReadLine());
+				if(c<0){
+					throw new Exception();
+				}
 			}
 			catch(Exception)
 			{
